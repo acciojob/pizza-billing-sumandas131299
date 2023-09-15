@@ -23,7 +23,7 @@ public class Pizza {
         this.cheesePrice=80;
 
         this.bagPrice=20;
-        this.bill = "Base Price Of The Pizza:"+this.price+"\n";
+        this.bill = "Base Price Of The Pizza: "+this.price+"\n";
     }
 
     public int getPrice(){
@@ -61,15 +61,15 @@ public class Pizza {
     public String getBill(){
         if(Isbill==false) {
             if (Ischeese) {
-                bill = bill + "Extra Cheese Added:" + this.cheesePrice + "\n";
+                bill = bill + "Extra Cheese Added: " + this.cheesePrice + "\n";
             }
             if (Istopping) {
-                bill = bill + "Extra Toppings Added:" + this.toppingPrice + "\n";
+                bill = bill + "Extra Toppings Added: " + this.toppingPrice + "\n";
             }
             if (Isbag) {
-                bill = bill + "Paperbag Added:" + this.bagPrice + "\n";
+                bill = bill + "Paperbag Added: " + this.bagPrice + "\n";
             }
-            bill = bill + "Total Price:"+this.price+ "\n";
+            bill = bill + "Total Price: "+this.price+ "\n";
 
             Isbill = true;
         }
