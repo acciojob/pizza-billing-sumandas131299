@@ -23,7 +23,7 @@ public class Pizza {
         this.cheesePrice=80;
 
         this.bagPrice=20;
-        this.bill = "Base Price Of The Pizza:"+this+price+"\n";
+        this.bill = "Base Price Of The Pizza:"+this.price+"\n";
     }
 
     public int getPrice(){
