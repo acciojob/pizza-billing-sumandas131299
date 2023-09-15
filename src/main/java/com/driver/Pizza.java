@@ -3,64 +3,78 @@ package com.driver;
 public class Pizza {
 
     private int price;
-    private Boolean isVeg,addcheese=true,addtopping=true,addtake=true;
+    private Boolean isVeg;
     private String bill;
 
+    private int cheesePrice;
+    private int toppingPrice;
+    private int bagPrice;
 
+    private boolean Ischeese , Istopping,Isbag, Isbill ;
 
     public Pizza(Boolean isVeg){
-        if(isVeg==true){
-            this.price+=300;
-        }else{
-            this.price+=400;
-        }
         this.isVeg = isVeg;
+        if(isVeg){
+            this.price = 300;
+            this.toppingPrice= 70;
+        }else{this.price = 400;
+            this.toppingPrice= 120;
+        }
+        this.cheesePrice=80;
 
+        this.bagPrice=20;
+        this.bill = "Base Price Of The Pizza:"+this+price+"\n";
     }
 
     public int getPrice(){
-
-            return this.price;
+        return this.price;
     }
 
     public void addExtraCheese(){
-        if(addcheese){
-            this.price+=80;
-            addcheese=false;
+        if(Ischeese==false){
+            price = price + cheesePrice;
+            Ischeese=true;
         }
+
+        // your code goes here
     }
 
     public void addExtraToppings(){
-        if(addtopping){
-            this.price+=70;
-            addtopping=false;
-        }    }
-
-    public void addTakeaway(){
-        if(addtake){
-            this.price+=70;
-            addtake=false;
+        if(Istopping==false){
+            price = price + toppingPrice;
+            Istopping = true;
         }
+
+        // your code goes here
     }
 
+    public void addTakeaway(){
+        if(Isbag==false){
+            price = price + bagPrice;
+            Isbag = true;
+        }
+
+
+        // your code goes here
+    }
 
     public String getBill(){
-        if(isVeg){
-            System.out.println("Base Price Of The Pizza: "+300);
-        }else {
-            System.out.println("Base Price Of The Pizza: "+400);
-        }
-        if(!addcheese){
-            System.out.println("Extra Cheese Added: "+80);
+        if(Isbill==false) {
+            if (Ischeese) {
+                bill = bill + "Extra Cheese Added:" + this.cheesePrice + "\n";
+            }
+            if (Istopping) {
+                bill = bill + "Extra Toppings Added:" + this.toppingPrice + "\n";
+            }
+            if (Isbag) {
+                bill = bill + "Paperbag Added:" + this.bagPrice + "\n";
+            }
+            bill = bill + "Total Price:"+this.price+ "\n";
+
+            Isbill = true;
         }
 
-        if (!addtopping){
-            System.out.println("Extra Toppings Added: "+70);
-        }
-        if(!addtake){
-            System.out.println("Paperbag Added: "+20);
-        }
-        System.out.println("Total Price: "+price);
-        return " ";
+        // your code goes here
+        return this.bill;
     }
 }
